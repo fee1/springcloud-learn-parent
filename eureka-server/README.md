@@ -7,5 +7,19 @@
 eureka实现了这一套服务注册于发现机制.
 
 创建eureka-server演示地址:
-https://blog.csdn.net/weixin_45528987/article/details/107257474
 
+![Image text](https://img-blog.csdnimg.cn/20200710173633944.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUyODk4Nw==,size_16,color_FFFFFF,t_70)
+
+![Image text](https://img-blog.csdnimg.cn/20200710173819259.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUyODk4Nw==,size_16,color_FFFFFF,t_70)
+
+![Image text](https://img-blog.csdnimg.cn/20200710174021712.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUyODk4Nw==,size_16,color_FFFFFF,t_70)
+
+写入配置
+
+![Image text](https://img-blog.csdnimg.cn/20200710174300425.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUyODk4Nw==,size_16,color_FFFFFF,t_70)
+
+启动@EnableEurekaServer注解不能少，表为注册中心服务
+![Image text](https://img-blog.csdnimg.cn/20200710174427570.png)
+
+访问localhost:10000
+![Image text](https://img-blog.csdnimg.cn/202007101747195.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUyODk4Nw==,size_16,color_FFFFFF,t_70)
