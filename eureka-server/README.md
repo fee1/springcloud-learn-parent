@@ -1,16 +1,17 @@
 #### eureka-server——注册中心demo
 
-[介绍](#####介绍)
+[jieshao](#####jieshao)
+
 [创建eureka-server演示](#####创建eureka-server演示)
 
-##### 介绍
+#####jieshao
 微服务架构的服务注册中心,服务会向注册中心注册自己的ip地址和端口信息.每个微服务都会定时向注册中心获取服务列表,汇报自己的运行状态.
 
 服务需要调用其它服务时,就可以从获取到的服务列表中获取其它微服务实例的ip地址进行调用.
 
 eureka实现了这一套服务注册于发现机制.
 
-##### 创建eureka-server演示
+#####创建eureka-server演示
 
 注册中心依赖
 ```$xslt
@@ -37,7 +38,7 @@ eureka实现了这一套服务注册于发现机制.
 访问localhost:10000
 ![Image text](https://img-blog.csdnimg.cn/202007101747195.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUyODk4Nw==,size_16,color_FFFFFF,t_70)
 
-##### 注册中心集群
+#####注册中心集群
 
 在eureka-server创建两个项目配置文件 application-server1.properties、application-server2.properties
 
@@ -53,7 +54,7 @@ eureka实现了这一套服务注册于发现机制.
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200712230923501.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUyODk4Nw==,size_16,color_FFFFFF,t_70)
 
-##### 给注册中心添加认证
+#####给注册中心添加认证
 
 依赖
 
@@ -88,3 +89,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200713154743476.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUyODk4Nw==,size_16,color_FFFFFF,t_70)
 
+
+
+[]: #####介绍
+
+[]: #####创建eureka-server演示
