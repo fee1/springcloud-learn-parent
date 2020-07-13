@@ -1,4 +1,7 @@
 #### eureka-server——注册中心demo
+
+[toc]
+
 ###### 介绍
 微服务架构的服务注册中心,服务会向注册中心注册自己的ip地址和端口信息.每个微服务都会定时向注册中心获取服务列表,汇报自己的运行状态.
 
@@ -48,3 +51,38 @@ eureka实现了这一套服务注册于发现机制.
 随便访问一个注册中心
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200712230923501.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUyODk4Nw==,size_16,color_FFFFFF,t_70)
+
+###### 给注册中心添加认证
+
+依赖
+
+```yaml
+<!--SpringSecurity-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+```
+
+springboot 添加配置用户名和密码
+
+```yaml
+#SpringSecurity 登录的用户名和密码
+spring.security.user.name=root
+spring.security.user.password=root
+```
+
+添加配置类，配置对应需要验证的路径，默认情况下，所有的路径均需要CSRF token验证
+```yaml
+@EnableWebSecurity
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().ignoringAntMatchers("/eureka/**");
+        super.configure(http);
+    }
+}
+```
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200713154743476.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUyODk4Nw==,size_16,color_FFFFFF,t_70)
