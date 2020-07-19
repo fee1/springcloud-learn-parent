@@ -31,6 +31,10 @@ SpringCloud是在SpringBoot的基础上构建的，所以引入SpringCloud相关
     </parent>
 ```
 
+# SpringCloud常用服务，打叉表示已经不在维护更新
+
+![在这里插入图片描述](https://github.com/fee1/springcloud-learn-parent/blob/master/springcloud%E6%9C%80%E6%96%B0%E4%BD%93%E7%B3%BB.png)
+
 # 工程目录
 ## 每个工程具体职能介绍在相应的md文档中
 1.eureka-server：注册中心微服务demo
