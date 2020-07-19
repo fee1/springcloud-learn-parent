@@ -59,4 +59,11 @@ eureka.client.service-url.defaultZone=http://localhost:10000/eureka/
 添加配置信息
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200713161230394.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUyODk4Nw==,size_16,color_FFFFFF,t_70)
 
+ # 常用配置
+registry-fetch-interval-seconds: 30 #定义去eureka服务端获取服务列表的时间间隔
 
+lease-renewal-interval-in-seconds: 30 #定义服务多久去注册中心续约
+
+lease-expiration-duration-in-seconds: 90 #定义服务多久不去续约认为服务失效
+
+prefer-ip-address: false #是否优先使用ip来作为主机名
