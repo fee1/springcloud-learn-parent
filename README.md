@@ -37,6 +37,8 @@ SpringCloud是在SpringBoot的基础上构建的，所以引入SpringCloud相关
 
 # 工程目录
 ## 每个工程具体职能介绍在相应的md文档中
+0.common：工具包和通用代码
+
 1.eureka-server：注册中心微服务demo
 
 2.eureka-client：注册到注册中心的客户端demo
