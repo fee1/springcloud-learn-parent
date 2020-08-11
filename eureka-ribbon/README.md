@@ -22,7 +22,7 @@ RestTemplate是一个HTTP客户端，我们可以使用它调用HTTP接口，支
 、PUT、DELETE等restful风格的接口方法。
 
 ## 依赖
-说明，springcloud依赖中已经默认包含了部分ribbon的依赖，不引入此依赖也能正常使用负载均衡功能，使用的时候应该注意一下。
+说明，springcloud依赖中已经默认包含了部分ribbon的依赖，不引入此依赖也能正常使用负载均衡功能，使用的时候应该注意一下，避免依赖冲突
 ```clike
 <!--ribbon负载均衡依赖-->
         <dependency>
