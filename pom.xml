@@ -20,6 +20,7 @@
         <module>eureka-target-service</module>
         <module>eureka-ribbon</module>
         <module>common</module>
+        <module>eureka-hystrix</module>
     </modules>
 
 
