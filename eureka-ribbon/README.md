@@ -129,6 +129,8 @@ eureka.client.fetch-registry=true
 ```
 ### 添加RestTemplate类
 
+这里强调一下@LoadBalanced还具有让restTemplate使用注册中心上的服务名字调取服务的作用
+
 ```clike
 @Configuration
 //@Configurable//通常用于对象new的时候，在构造函数之前让spring注入对象

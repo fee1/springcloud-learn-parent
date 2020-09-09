@@ -1,10 +1,9 @@
 package com.zxf.service;
 
-//import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.zxf.api.CommonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -18,7 +17,7 @@ public class HystrixService {
     @Value("${target-url}")
     String targetService;
 
-//    @HystrixCommand(fallbackMethod = "errorMethod")
+    @HystrixCommand(fallbackMethod = "errorMethod")
     public CommonResult test(){
         return restTemplate.getForObject(targetService+"/error", CommonResult.class);
     }

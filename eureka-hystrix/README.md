@@ -25,6 +25,15 @@ Hystrix具有服务降级、服务熔断、线程隔离、请求缓存、请求�
 ```
 
 ## 配置
+---提醒：使用restTemplate调用注册到注册中心服务的时候，如果需要使用服务名调用，需要使用在restTemplate上加入注解@LoadBalanced
+
 @EnableCircuitBreaker //开启熔断功能
+
+@HystrixCommand(fallbackMethod = "方法名") //在调用的方法上添加此注解，指定服务降级使用的方法
+    fallbackMethod：指定服务降级处理方法；
+    ignoreExceptions：忽略某些异常，不发生服务降级；
+    commandKey：命令名称，用于区分不同的命令；
+    groupKey：分组名称，Hystrix会根据不同的分组来统计命令的告警及仪表盘信息；
+    threadPoolKey：线程池名称，用于划分线程池。
 
 ## 
