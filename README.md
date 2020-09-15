@@ -48,3 +48,7 @@ SpringCloud是在SpringBoot的基础上构建的，所以引入SpringCloud相关
 
 3.eureka-ribbon：负载均衡demo
 
+4.eureka-hystrix：服务容错保护
+
+5.eureka-openFeign：声明式服务调用
+

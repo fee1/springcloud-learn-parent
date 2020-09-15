@@ -1,4 +1,4 @@
-# Spring Cloud Hystrix:服务容器保护（已经不在维护，可以选择直接学习sentienl）
+# Spring Cloud Hystrix:服务容错保护（已经不在维护，可以选择直接学习sentienl）
 
 ## 目录
 [简介](#简介)
