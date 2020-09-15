@@ -21,6 +21,7 @@
         <module>eureka-ribbon</module>
         <module>common</module>
         <module>eureka-hystrix</module>
+        <module>eureka-openFeign</module>
     </modules>
 
 
