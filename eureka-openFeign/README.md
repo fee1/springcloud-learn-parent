@@ -56,3 +56,35 @@ service中使用openFeign定义的接口类型调用
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200916225142340.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUyODk4Nw==,size_16,color_FFFFFF,t_70#pic_center)
 
+# 配置Feign日志
+日志级别：
+```text
+    NONE：默认的，不显示任何日志。
+    BASIC：仅记录请求方法、URL、响应状态码及执行时间。
+    HEADERS：比BASIC，还多出了请求和响应的头信息。
+    FULL：比HEADERS，还多出了请求和响应的正文和元数据信息。
+```
+
+配置：
+```java
+@Configuration
+public class Feignconfig {
+
+    /**
+     * feign开启日志配置
+     * @return
+     */
+    @Bean
+    public Logger.Level feignLoggerLevel(){
+        return Logger.Level.FULL;
+    }
+
+}
+```
+
+springboot的yml配置文件配置日志级别
+```yaml
+logging:
+  level:
+    com.zxf.feign.FeignServiceFeign:debug
+```
