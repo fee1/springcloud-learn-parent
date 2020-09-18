@@ -86,5 +86,9 @@ springboot的yml配置文件配置日志级别
 ```yaml
 logging:
   level:
-    com.zxf.feign.FeignServiceFeign:debug
+    com.zxf.feign.FeignServiceFeign: debug #注意debug前面有一个空格，确实会报错并且很难排查
 ```
+
+示例
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200918164136282.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUyODk4Nw==,size_16,color_FFFFFF,t_70#pic_center)
+

@@ -14,4 +14,4 @@ feign:
     enabled: true # 开启容错功能
 logging:
   level:
-    com.zxf.feign.FeignServiceFeign:debug
+    com.zxf.feign.FeignServiceFeign: debug
