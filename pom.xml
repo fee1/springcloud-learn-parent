@@ -21,7 +21,8 @@
         <module>eureka-ribbon</module>
         <module>common</module>
         <module>eureka-hystrix</module>
-        <module>eureka-openFeign</module>
+        <module>springcloud-openFeign</module>
+        <module>springcloud-zuul</module>
     </modules>
 
 
