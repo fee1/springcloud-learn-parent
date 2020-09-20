@@ -1,5 +1,9 @@
 # eureka-server——注册中心demo
 
+```text
+已经不再维护
+```
+
 [介绍](#介绍)
 
 [创建eureka-server演示](#创建eureka-server演示)
