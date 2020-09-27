@@ -4,8 +4,8 @@
 zuul已经不在维护
 简单介绍：
     zuul 在springcloud刚推出时承担着api网关的作用，作为微服务架构中的服务提供了统一访问入口，客户端都是通过网关经行路由访问服务，而不是直接访问服务。网关有点类似于web开发中
-的拦截器与过滤器，但又不同于拦截器与过滤器。（注：过滤器在进入service前执行，拦截器在dispartservlet之后controller之气执行）它不仅能实现拦截器与过滤器的功能，还具有负载均衡、
-校验过滤、服务容错和服务聚合的功能。
+的拦截器与过滤器，但又不同于拦截器与过滤器。它不仅能实现拦截器与过滤器的功能，还具有负载均衡、校验过滤、服务容错和服务聚合的功能。
+（注：过滤器在进入service前执行，拦截器在dispartservlet之后controller之气执行）
 ```
 
 # 目录
@@ -22,10 +22,10 @@ zuul已经不在维护
 # 依赖
 ```xml
 <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-gateway</artifactId>
-            <version>2.2.0.RELEASE</version>
-        </dependency>
+       <groupId>org.springframework.cloud</groupId>
+       <artifactId>spring-cloud-starter-gateway</artifactId>
+       <version>2.2.0.RELEASE</version>
+</dependency>
 ```
 启动时可能还会出现如下情况：
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200920213841122.png#pic_center)
