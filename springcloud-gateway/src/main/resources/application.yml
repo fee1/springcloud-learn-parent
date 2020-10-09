@@ -3,7 +3,12 @@ spring:
     name: gateway
   cloud:
     gateway:
-      enabled: false
+      routes:
+        - id: target  #路由的ID，没有固定规则但要求唯一，建议配合服务名
+          uri: http://127.0.0.1:11000
+          predicates:
+            - Path=/getRibbon/**, /success/**
+#            - RemoteAddr=192.168.190.128
 server:
   port: 20000
 eureka:
@@ -12,3 +17,4 @@ eureka:
       defaultZone: http://root:root@localhost:10000/eureka
     register-with-eureka: true
     fetch-registry: true
+    
