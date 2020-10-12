@@ -150,7 +150,7 @@ public class GatewayConfig {
             - Path=/getRibbon/**, /success/**
             - Weight=group1,4 #40%的请求路由到此路径下
 ```
-### 给请求添加参数过滤器a
+### 给请求添加参数过滤器
 ```yaml
 - id: target  #路由的ID，没有固定规则但要求唯一，建议配合服务名
           uri: http://127.0.0.1:11000
