@@ -6,10 +6,13 @@ spring:
       routes:
         - id: target  #路由的ID，没有固定规则但要求唯一，建议配合服务名
           uri: http://127.0.0.1:11000
-          predicates:
-            - Path=/getRibbon/**, /success/**
+#          predicates:
+#            - Path=/getRibbon/**, /success/**
           filters:
-            - AddRequestParameter=id,12121212
+            - name: Hystrix
+              args:
+                name: fallbackcmd
+                fallbackUri: forward:/fallback
 server:
   port: 20000
 eureka:

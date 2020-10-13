@@ -159,3 +159,16 @@ public class GatewayConfig {
           filters:
             - AddRequestParameter=id,12121212 # 相当于给请求添加了一个参数名为id，值为12121212的请求参数
 ```
+### 开启服务降级功能
+```yaml
+- id: target  #路由的ID，没有固定规则但要求唯一，建议配合服务名
+          uri: http://127.0.0.1:11000
+#          predicates:
+#            - Path=/getRibbon/**, /success/**
+          filters:
+            - name: Hystrix
+              args:
+                name: fallbackcmd
+                fallbackUri: forward:/fallback
+```
+### 
