@@ -160,6 +160,14 @@ public class GatewayConfig {
             - AddRequestParameter=id,12121212 # 相当于给请求添加了一个参数名为id，值为12121212的请求参数
 ```
 ### 开启服务降级功能
+#### 引入服务容错依赖
+```xml
+<dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+        </dependency>
+```
+#### 配置
 ```yaml
 - id: target  #路由的ID，没有固定规则但要求唯一，建议配合服务名
           uri: http://127.0.0.1:11000
@@ -171,4 +179,15 @@ public class GatewayConfig {
                 name: fallbackcmd
                 fallbackUri: forward:/fallback
 ```
-### 
+### 开启限流过滤器（RequestRateLimiter）功能
+#### 引入限流过滤器（RequestRateLimiter）依赖
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
+</dependency>
+```
+#### 配置
+```yaml
+
+``` 

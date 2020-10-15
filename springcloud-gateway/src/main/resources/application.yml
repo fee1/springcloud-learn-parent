@@ -8,11 +8,7 @@ spring:
           uri: http://127.0.0.1:11000
 #          predicates:
 #            - Path=/getRibbon/**, /success/**
-          filters:
-            - name: Hystrix
-              args:
-                name: fallbackcmd
-                fallbackUri: forward:/fallback
+
 server:
   port: 20000
 eureka:
