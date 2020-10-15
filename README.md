@@ -50,5 +50,8 @@ SpringCloud是在SpringBoot的基础上构建的，所以引入SpringCloud相关
 
 4.eureka-hystrix：服务容错保护
 
-5.eureka-openFeign：声明式服务调用
+5.springcloud-openFeign：声明式服务调用
 
+6.eureka-target-service：各服务调用测试工程
+
+7.springcloud-gateway：路由网关工程
