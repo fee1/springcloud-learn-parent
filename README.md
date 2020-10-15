@@ -25,8 +25,8 @@ SpringCloud的版本为伦敦地铁名称命名，对应不同的SpringBoot版�
 
 SpringCloud是在SpringBoot的基础上构建的，所以引入SpringCloud相关依赖后不需要引入，SpringBoot启动依赖。
 
-```$xslt
-请注意父pom规定了其项目下子工程的springboot相关依赖的版本，所以有些pom我不会添加version
+```xml
+        <!--请注意父pom规定了其项目下子工程的springboot相关依赖的版本，所以有些pom我不会添加version-->
 <parent><!--规定工程创建指定的springboot版本-->
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
