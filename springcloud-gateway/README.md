@@ -171,8 +171,6 @@ public class GatewayConfig {
 ```yaml
 - id: target  #路由的ID，没有固定规则但要求唯一，建议配合服务名
           uri: http://127.0.0.1:11000
-#          predicates:
-#            - Path=/getRibbon/**, /success/**
           filters:
             - name: Hystrix
               args:
@@ -180,14 +178,37 @@ public class GatewayConfig {
                 fallbackUri: forward:/fallback
 ```
 ### 开启限流过滤器（RequestRateLimiter）功能
-#### 引入限流过滤器（RequestRateLimiter）依赖
+#### 引入限流过滤器（RequestRateLimiter）依赖与redis依赖
 ```xml
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
 </dependency>
+<dependency>
+     <groupId>org.springframework.data</groupId>
+     <artifactId>spring-data-redis</artifactId>
+</dependency>
 ```
 #### 配置
 ```yaml
-
+routes:
+        - id: target  #路由的ID，没有固定规则但要求唯一，建议配合服务名
+          uri: http://127.0.0.1:11000
+          filters:
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 1 # 每秒允许处理的请求数量
+                redis-rate-limiter.burstCapacity: 2 # 每秒最大处理的请求数量
+                key-resolver: "#{@ipKeyResolver}" # 限流策略
+          predicates:
+            - Method=GET # 必须存在
 ``` 
+```yaml
+      redis:
+        host: 192.168.137.130
+```
+#### 效果图示
+多次对同一个接口进行请求，返回HTTP ERROR 429
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20201016101023256.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUyODk4Nw==,size_16,color_FFFFFF,t_70#pic_center)
+控制台打印日志
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20201016101141642.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTUyODk4Nw==,size_16,color_FFFFFF,t_70#pic_center)

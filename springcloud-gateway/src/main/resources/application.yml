@@ -6,9 +6,16 @@ spring:
       routes:
         - id: target  #路由的ID，没有固定规则但要求唯一，建议配合服务名
           uri: http://127.0.0.1:11000
-#          predicates:
-#            - Path=/getRibbon/**, /success/**
-
+          filters:
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 1 # 每秒允许处理的请求数量
+                redis-rate-limiter.burstCapacity: 2 # 每秒最大处理的请求数量
+                key-resolver: "#{@ipKeyResolver}" # 限流策略
+          predicates:
+            - Method=GET # 必须存在
+  redis:
+    host: 192.168.137.130
 server:
   port: 20000
 eureka:
@@ -17,4 +24,7 @@ eureka:
       defaultZone: http://root:root@localhost:10000/eureka
     register-with-eureka: true
     fetch-registry: true
-    
+
+logging:
+  level:
+    org.springframework.cloud.gateway: debug

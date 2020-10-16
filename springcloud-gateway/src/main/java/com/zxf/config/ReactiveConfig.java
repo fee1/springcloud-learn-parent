@@ -16,10 +16,10 @@ public class ReactiveConfig {
      * 基于用户限流
      * @return
      */
-    @Bean
-    public KeyResolver userKeyResolver(){
-        return exchange -> Mono.just(exchange.getRequest().getQueryParams().getFirst("username"));
-    }
+//    @Bean
+//    public KeyResolver userKeyResolver(){
+//        return exchange -> Mono.just(exchange.getRequest().getQueryParams().getFirst("username"));
+//    }
 
     /**
      * 基于ip限流
