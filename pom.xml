@@ -24,6 +24,7 @@
         <module>springcloud-openFeign</module>
         <module>springcloud-gateway</module>
         <module>springcloud-hystrix-dashboard</module>
+        <module>springboot-admin</module>
     </modules>
 
 
