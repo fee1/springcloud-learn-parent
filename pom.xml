@@ -23,6 +23,7 @@
         <module>eureka-hystrix</module>
         <module>springcloud-openFeign</module>
         <module>springcloud-gateway</module>
+        <module>springcloud-hystrix-dashboard</module>
     </modules>
 
 
