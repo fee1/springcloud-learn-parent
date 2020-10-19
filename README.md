@@ -55,3 +55,7 @@ SpringCloud是在SpringBoot的基础上构建的，所以引入SpringCloud相关
 6.eureka-target-service：各服务调用测试工程
 
 7.springcloud-gateway：路由网关工程
+
+8.springcloud-hystrix-dashboard: 断路器执行监控器
+
+9.springboot-admin: springboot 微服务应用监控
