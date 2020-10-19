@@ -40,6 +40,7 @@ SpringCloud是在SpringBoot的基础上构建的，所以引入SpringCloud相关
 
 # 工程目录
 ## 每个工程具体职能介绍在相应的md文档中
+```text
 0.common：工具包和通用代码
 
 1.eureka-server：注册中心微服务demo
@@ -59,3 +60,4 @@ SpringCloud是在SpringBoot的基础上构建的，所以引入SpringCloud相关
 8.springcloud-hystrix-dashboard: 断路器执行监控器
 
 9.springboot-admin: springboot 微服务应用监控
+```
