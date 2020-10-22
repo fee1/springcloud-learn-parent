@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: spring-boot-admin
+  boot:
+    spring.boot.admin.
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-components: always
+logging:
+  file: admin-client.log
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:root@localhost:10000/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+server:
+  port: 30000
