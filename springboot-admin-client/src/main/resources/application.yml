@@ -1,20 +1,20 @@
 spring:
   application:
-    name: spring-boot-admin
+    name: spring-boot-admin-client
   boot:
     admin:
       client:
-        url: http://localhost:20000
+        url: http://localhost:20000 #注册到 admin server的 url
 management:
   endpoints:
     web:
       exposure:
-        include: '*'
+        include: '*' # 暴露所有端点
   endpoint:
     health:
-      show-components: always
+      show-components: always # 端点监控检查
 #logging:
-#  file: admin-client.log
+#  file: spring-boot-admin-client.log #日志监控文件
 eureka:
   client:
     service-url:

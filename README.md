@@ -59,5 +59,7 @@ SpringCloud是在SpringBoot的基础上构建的，所以引入SpringCloud相关
 
 8.springcloud-hystrix-dashboard: 断路器执行监控器
 
-9.springboot-admin: springboot 微服务应用监控
+9.springboot-admin-server: springboot 微服务应用监控中心
+
+10.springboot-admin-client: springboot 微服务应用监控中心注册使用实例
 ```
