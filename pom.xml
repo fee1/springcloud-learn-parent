@@ -26,6 +26,7 @@
         <module>springcloud-hystrix-dashboard</module>
         <module>springboot-admin-client</module>
         <module>springboot-admin-server</module>
+        <module>springcloud-sleuth</module>
     </modules>
 
 
