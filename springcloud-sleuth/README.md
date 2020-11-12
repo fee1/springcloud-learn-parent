@@ -4,7 +4,7 @@
 ```text
     分布式系统跟中服务间调用的工具，直观展示出一次请求的调用过程。
 ```
-## 依赖（需要在目标项目中都添加相应的依赖，为了方便演示，我在target与ribbon工程配合演示此功能）
+## 依赖（需要在目标项目中都添加相应的依赖，为了方便演示，我在target与openfeign工程配合演示此功能）
 ```xml
         <dependency>
             <groupId>org.springframework.cloud</groupId>
