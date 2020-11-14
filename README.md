@@ -64,4 +64,6 @@ SpringCloud是在SpringBoot的基础上构建的，所以引入SpringCloud相关
 10.springboot-admin-client: springboot 微服务应用监控中心注册使用实例
 
 11.springcloud-sleuth: springcloud 分布式请求链路跟踪工程示例
+
+12.springcloud-config: springcloud 外部集中化配置管理
 ```
