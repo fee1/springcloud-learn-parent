@@ -27,7 +27,8 @@ public class ReactiveConfig {
      */
     @Bean
     public KeyResolver ipKeyResolver(){
-        return exchange -> Mono.just(exchange.getRequest().getRemoteAddress().getHostName());
+        KeyResolver keyResolver = exchange -> Mono.just(exchange.getRequest().getRemoteAddress().getHostName());
+        return keyResolver;
     }
 
 }
