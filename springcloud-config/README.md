@@ -7,5 +7,22 @@
 ```
 
 # 在gitee下创建一个仓库用于存储配置文件
-
+```text
+创建过程略。
+将eureka-client的配置文件上传到gitee的仓库上。
+```
 # 依赖
+```yml
+        <!--config client-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+
+        <!--config server-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-server</artifactId>
+        </dependency>
+```
+# 
