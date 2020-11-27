@@ -14,7 +14,11 @@ import org.springframework.web.client.RestTemplate;
 public class HystrixApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(HystrixApplication.class, args);
+        try {
+            SpringApplication.run(HystrixApplication.class, args);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Bean

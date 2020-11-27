@@ -9,7 +9,11 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 public class TargetApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(TargetApplication.class, args);
+        try {
+            SpringApplication.run(TargetApplication.class, args);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 }
