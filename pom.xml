@@ -28,7 +28,7 @@
         <module>springboot-admin-client</module>
         <module>springboot-admin-server</module>
         <module>springcloud-sleuth</module>
-        <module>springcloud-config</module>
+        <module>springcloud-config-server</module>
         <module>springcloud-bus</module>
     </modules>
 

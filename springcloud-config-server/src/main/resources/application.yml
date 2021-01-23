@@ -14,7 +14,8 @@ server:
   port: 12000
 eureka:
   client:
-    service-url: http://root:root@localhost:10000/eureka/
+    service-url:
+      defaultZone: http://root:root@localhost:10000/eureka/
     register-with-eureka: true
     fetch-registry: false
 

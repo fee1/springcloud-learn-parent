@@ -43,5 +43,12 @@ eureka:
 ```
 ## 如何获取配置？
 ```text
+    获取配置信息格式: /{label}/{application}-{profile}
+    获取配置文件信息: /{label}/{application}-{profile}.{文件后缀}
+    label: 分支名称。可配置为spring.cloud.config.label。
+    application: 应用名称，默认spring.application.name，可配置为spring.cloud.config.name。
+    profile: 环境名称。可配置为spring.cloud.config.profile。
 
+    样例: 获取配置信息: localhost:12000/master/config-dev   
+         获取配置文件: localhost:12000/master/config-dev.yml
 ```
