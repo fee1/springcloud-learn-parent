@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      profile: dev #’-‘后面的名称
+      label: master #git上的哪一个分支
+      uri: http://localhost:12000 #配置中心地址
+      name: config #‘-’前面的名称
+server:
+  port: 9003
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:root@localhost:10000/eureka/
+    register-with-eureka: true
+    fetch-registry: false
