@@ -64,4 +64,59 @@ eureka:
         ②获取配置文件: localhost:12000/master/config-dev.yml
             config: info:"config info for dev(master)"
 ```
-## 
+## 新建一个config-client的子工程
+### 添加依赖
+```xml
+<dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-client</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+```
+### 新建一个bootstrap.yml配置
+```yml
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      profile: dev #’-‘后面的名称
+      label: master #git上的哪一个分支
+      uri: http://localhost:12000 #配置中心地址
+      name: config #‘-’前面的名称
+server:
+  port: 9003
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:root@localhost:10000/eureka/
+    register-with-eureka: true
+    fetch-registry: false
+```
+### 新建一个api类获取配置
+```java
+@RestController
+public class ConfigClientController {
+
+    @Value("${config.info}")
+    private String configInfo;
+
+    @GetMapping("/config-info")
+    public String getConfigInfo(){
+        return configInfo;
+    }
+
+}
+```
+```text
+    这样我们的工程就可以再启动的时候就去gitee上获取我们的配置文件的配置信息，但是这还又一个缺陷就是不能实时获取。bus可以解决此问题。
+```
