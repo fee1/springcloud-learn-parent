@@ -120,3 +120,110 @@ public class ConfigClientController {
 ```text
     这样我们的工程就可以再启动的时候就去gitee上获取我们的配置文件的配置信息，但是这还又一个缺陷就是不能实时获取。bus可以解决此问题。
 ```
+# Spring Cloud Bus 消息总线
+```text
+简介：
+    使用消息代理的思想构建一个工程，所有微服务的服务都连接到这个工程服务上去，当我们想这个bus服务发送消息的时候，搜友连接到这个工程的服务都对消息进行消费。
+bus支持两种消息代理：rabbitMQ与kafka。我们可以使用bus实现动态刷新配置。
+```
+## 你需要安装一个rabbitMQ，步骤略。
+## 依赖
+```xml
+<dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+        </dependency>
+<dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-actuator</artifactId>
+      </dependency>
+```
+```text
+    <parent><!--规定工程创建指定的springboot版本-->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-parent</artifactId>
+            <version>2.3.1.RELEASE</version>
+        </parent>
+
+    父工程中的pom的parent因为继承关系包含了actuator依赖。
+
+    springboot的actuator是一款健康检查工具。
+```
+## 配置config-client
+```yml
+server:
+  port: 9003
+spring:
+  application:
+    name: config-client-amqp
+  cloud:
+    config:
+      uri: http://localhost:12000
+      name: config
+      profile: dev
+      label: master
+      discovery:
+        enabled: true
+        service-id: config-server-amqp
+  rabbitmq:
+    host: 192.168.137.135 # ip
+    port: 5672 # 端口 
+    username: guest
+    password: guest
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:root@localhost:10000/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'refresh' # 开启actuator端点
+```
+## 配置config-server
+```yml
+spring:
+  application:
+    name: config-server-amqp
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/zxffe/config.git
+          username: zxffe
+          password: zxf1063446979
+          clone-on-start: true # 启动时直接从git上获取配置
+  rabbitmq:
+    host: 192.168.137.135
+    port: 5672
+    username: guest
+    password: guest
+
+server:
+  port: 12000
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:root@localhost:10000/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+management:
+  endpoints: # 暴露bus刷新配置端点
+    web:
+      exposure:
+        include: 'bus-refresh'
+```
+## 启动config-client和config-server项目
+```text
+    项目启动完成后，bus会在rabbitMQ上创建一个交换器(exchanges)，和两个项目对应的队列(queues)，springCloudBus交换器会自动绑定上这两个队列。
+```
+![Image](../images/rabbitMQ1.png)
+![Image](../images/rabbitMQ2.png)
+![Image](../images/rabbitMQ3.png)
+## 修改git上的文件后，刷新配置
+```text
+http://localhost:12000/actuator/bus-refresh
+```
