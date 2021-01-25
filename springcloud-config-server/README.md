@@ -216,6 +216,10 @@ management:
       exposure:
         include: 'bus-refresh'
 ```
+## @RefreshScope 刷新
+```text
+    在需要刷新配置的类上加入注解，@RefreshScope才能实现动态刷新。
+```
 ## 启动config-client和config-server项目
 ```text
     项目启动完成后，bus会在rabbitMQ上创建一个交换器(exchanges)，和两个项目对应的队列(queues)，springCloudBus交换器会自动绑定上这两个队列。
