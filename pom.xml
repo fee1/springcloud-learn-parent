@@ -30,6 +30,7 @@
         <module>springcloud-sleuth</module>
         <module>springcloud-config-server</module>
         <module>config-client</module>
+        <module>springcloud-oauth2</module>
     </modules>
 
 
