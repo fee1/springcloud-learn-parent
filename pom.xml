@@ -31,6 +31,8 @@
         <module>springcloud-config-server</module>
         <module>config-client</module>
         <module>springcloud-oauth2</module>
+        <module>springcloud-security-oauth2-single-sign-on</module>
+        <module>springcloud-nacos</module>
     </modules>
 
 

@@ -29,4 +29,5 @@
         </dependency>
     </dependencies>
 ```
-## 
+## 使用@EnableAuthorizationServer注解开启认证服务
+## 使用@EnableResourceServer注解开启资源服务器配置
