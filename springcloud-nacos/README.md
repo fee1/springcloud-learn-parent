@@ -13,4 +13,41 @@ Nacos特性：
 ## 安装运行Nacos
 ```text
     官网下载Nacos: https://github.com/alibaba/nacos/releases
+    
+    解压文件，并且进入主文件夹，执行命令: mvn -Prelease-nacos -Dmaven.test.skip=true clean install -U
+
+    进入nacos-1.4.1\distribution\target\nacos-server-1.4.1\nacos\bin目录: 执行md或者sh执行脚本
+    注意一: 运行脚本需要配置号java环境JAVA_HOME。
+    注意二: 1.2.0以后的坂本和1.4.1版本有点区别，执行脚本中1.2.0默认为单机模式，1.4.1默认为集群模式，所以1.4.1启动时会报错，需要注意。
+            解决办法：
+                修改1.4.1的可执行脚本
+                set MODE="cluster"  改为  set MODE="standalone"
+
+    运行成功后访问: http://192.168.42.16:8848/nacos  用户名和密码都是nacos。
+```
+![Image](images/nacos.png)
+## 创建工程模块 nacos 
+```xml
+    <dependencies>
+        <!--nacos注册发现-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-nacos-discovery</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
+```
+```yml
+spring:
+  application:
+    name: nacos-client
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.42.16:8848
+server:
+  port: 8081
 ```

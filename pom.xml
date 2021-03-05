@@ -33,6 +33,7 @@
         <module>springcloud-oauth2</module>
         <module>springcloud-security-oauth2-single-sign-on</module>
         <module>springcloud-nacos</module>
+        <module>srpingcloud-nacos-ribbon</module>
     </modules>
 
 
