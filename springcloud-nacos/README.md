@@ -52,4 +52,49 @@ server:
   port: 8081
 ```
 ![Image](images/naocs2.png)
-
+## 使用Nacos作为配置中心
+```xml
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-nacos-config</artifactId>
+        </dependency>
+```
+```text
+    在springcloud-nacos与springcloud-nacos-ribbon中配合演示。
+```
+### 新建bootstrap.yml作为springboot启动的主配置
+```yaml
+server:
+  port: 9000
+spring:
+  application:
+    name: nacos-ribbon
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
+        file-extension: yaml #获取的yaml格式的配置
+  profiles:
+    active: dev
+```
+### 在nacos中添加配置
+```text
+    新建配置文件的格式为：${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+```
+![Image](images/nacos-config.png)
+### 发布后控制台
+```text
+2021-03-06 21:59:46.029  INFO 14752 --- [-localhost_8848] c.a.n.client.config.impl.ClientWorker    : [fixed-localhost_8848] [polling-resp] config changed. dataId=nacos-ribbon-dev.yaml, group=DEFAULT_GROUP
+2021-03-06 21:59:46.037  INFO 14752 --- [-localhost_8848] c.a.n.client.config.impl.ClientWorker    : [fixed-localhost_8848] [data-received] dataId=nacos-ribbon-dev.yaml, group=DEFAULT_GROUP, tenant=null, md5=cb959ac60dad3f7d0f3401db74b839bb, content=name: hahahahahahahaahhahah
+2021-03-06 21:59:46.038  INFO 14752 --- [-localhost_8848] c.a.nacos.client.config.impl.CacheData   : [fixed-localhost_8848] [notify-context] dataId=nacos-ribbon-dev.yaml, group=DEFAULT_GROUP, md5=cb959ac60dad3f7d0f3401db74b839bb
+2021-03-06 21:59:46.671  WARN 14752 --- [-localhost_8848] c.a.c.n.c.NacosPropertySourceBuilder     : Ignore the empty nacos configuration and get it based on dataId[nacos-ribbon] & group[DEFAULT_GROUP]
+2021-03-06 21:59:46.671  WARN 14752 --- [-localhost_8848] c.a.c.n.c.NacosPropertySourceBuilder     : Ignore the empty nacos configuration and get it based on dataId[nacos-ribbon.yaml] & group[DEFAULT_GROUP]
+2021-03-06 21:59:46.671  INFO 14752 --- [-localhost_8848] b.c.PropertySourceBootstrapConfiguration : Located property source: [BootstrapPropertySource {name='bootstrapProperties-nacos-ribbon-dev.yaml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-nacos-ribbon.yaml,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-nacos-ribbon,DEFAULT_GROUP'}]
+2021-03-06 21:59:46.681  INFO 14752 --- [-localhost_8848] o.s.boot.SpringApplication               : The following profiles are active: dev
+2021-03-06 21:59:46.681  INFO 14752 --- [-localhost_8848] o.s.boot.SpringApplication               : Started application in 0.646 seconds (JVM running for 531.4)
+2021-03-06 21:59:46.701  INFO 14752 --- [-localhost_8848] o.s.c.e.event.RefreshEventListener       : Refresh keys changed: [name]
+2021-03-06 21:59:46.701  INFO 14752 --- [-localhost_8848] c.a.nacos.client.config.impl.CacheData   : [fixed-localhost_8848] [notify-ok] dataId=nacos-ribbon-dev.yaml, group=DEFAULT_GROUP, md5=cb959ac60dad3f7d0f3401db74b839bb, listener=com.alibaba.cloud.nacos.refresh.NacosContextRefresher$1@69589798 
+2021-03-06 21:59:46.701  INFO 14752 --- [-localhost_8848] c.a.nacos.client.config.impl.CacheData   : [fixed-localhost_8848] [notify-listener] time cost=663ms in ClientWorker, dataId=nacos-ribbon-dev.yaml, group=DEFAULT_GROUP, md5=cb959ac60dad3f7d0f3401db74b839bb, listener=com.alibaba.cloud.nacos.refresh.NacosContextRefresher$1@69589798 
+```

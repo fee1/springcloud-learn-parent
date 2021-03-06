@@ -1,0 +1,14 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: nacos-ribbon
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
+        file-extension: yaml #获取的yaml格式的配置
+  profiles:
+    active: dev
