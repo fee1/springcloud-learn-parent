@@ -4,11 +4,8 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.42.16:8848
+        server-addr: localhost:8848
 server:
   port: 8082
-management:
-  endpoints:
-    web:
-      exposure:
-        include:'*'
+
+name: xiaoming
