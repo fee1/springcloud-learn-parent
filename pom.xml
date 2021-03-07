@@ -34,6 +34,7 @@
         <module>springcloud-security-oauth2-single-sign-on</module>
         <module>springcloud-nacos</module>
         <module>srpingcloud-nacos-ribbon</module>
+        <module>springcloud-sentinel</module>
     </modules>
 
 

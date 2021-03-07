@@ -1,0 +1,15 @@
+server:
+  port: 9002
+spring:
+  application:
+    name: sentinel-server
+  cloud:
+    nacos:
+      config:
+        server-addr: 192.168.230.1:8848 # nacos 配置中心
+      discovery:
+        server-addr: 192.168.230.1:8848 # nacos 注册中心
+    sentinel:
+      transport:
+        dashboard: 192.168.230.1:8080 # 配置 sentiel dashboard 地址
+        port: 8719
