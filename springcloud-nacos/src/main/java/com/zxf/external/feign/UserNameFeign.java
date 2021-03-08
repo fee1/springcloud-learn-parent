@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public interface UserNameFeign {
 
     @GetMapping("v1/nacos-ribbon/ribbon/user-name")
-    @ResponseBody
     String getUserName();
 
 }
